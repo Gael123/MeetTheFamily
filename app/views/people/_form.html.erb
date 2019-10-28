@@ -1,0 +1,25 @@
+<%= simple_form_for(@person) do |f| %>
+  <% if @person.errors.any? %>
+    <div class="errors-container">
+
+      <ul>
+        <% @person.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+<div class="row justify-content-center">
+  <div class="col-4">
+
+    <%= simple_form_for [@person] do |form| %>
+      <%= f.input :first_name, placeholder: "First Name", label: false %>
+      <%= f.input :second_name, placeholder: "Second Name", label: false %>
+      <%= f.input :date_of_birth, placeholder: "Date of Birth", label: false %>
+
+      <%= f.submit "save", class: "btn-solid btn-block" %>
+
+    <% end %>
+  </div>
+</div>
+  <!-- [...] a
