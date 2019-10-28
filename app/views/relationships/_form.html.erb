@@ -1,0 +1,27 @@
+<%= simple_form_for(@person, @relationship) do |f| %>
+  <% if @relationship_type.errors.any? %>
+    <div class="errors-container">
+
+      <ul>
+        <% @relationship.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+<div class="row justify-content-center">
+  <div class="col-4">
+
+    <%= simple_form_for [@relationship_type ] do |form| %>
+      <%= f.input :relationship_type_id, label: false %>
+      <%= f.collection_select :relationship_type_id, RelationshipType.all, :id, :name, include_blank: :true %>
+      <%= f.input :related_person_id,  label: false %>
+      <%= f.collection_select :related_person_id,Person.all, :id, :name, include_blank: :true  %>
+
+
+      <%= f.submit 'save', class: "btn-solid btn-block" %>
+
+  </div>
+</div>
+  <!-- [...] a
+

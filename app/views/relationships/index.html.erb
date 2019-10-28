@@ -1,0 +1,29 @@
+<h1> Listing relationsfor each <%= @person.first_name %></h1>
+
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Relationship type</th>
+      <th>Related person</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relationships.each do |relationship| %>
+      <tr>
+        <td><%= relation.relationship_type.name %></td>
+        <td><%= relationship.related_person.name %></td>
+
+        <td><%= link_to 'Show', person_relationship_path(@person, relationship) %></td>
+
+      </tr>
+      <%= link_to 'New Relationship type',new_relationship_type_path %>
+    <% end %>
+  </tbody>
+</table>
+
+
