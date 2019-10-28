@@ -1,0 +1,29 @@
+<h1> Listing relationship types</h1>
+
+
+
+<h1>Listing People</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Backward name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relationship_type.each do |relationship_type| %>
+      <tr>
+        <td><%= relationship_type.name %></td>
+        <td><%= relationship_type.read_attribute :backward_name %></td>
+
+        <td><%= link_to 'Show', relationship_type %></td>
+        <td><%= link_to 'Edit', edit_relationship_type(relationship_type) %></td>
+      </tr>
+      <%= link_to 'New Relationship type',new_relationship_type_path %>
+    <% end %>
+  </tbody>
+</table>
+
