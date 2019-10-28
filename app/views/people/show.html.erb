@@ -1,1 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+
+
+      <h2>Name <%= @person.first_name %></h2>
+      <h3>Date of Birth <%= @person.date_of_birth %></h3>
+
+
+
+
+
+    <% @person.all_relationships.each do |rel| %>
+
+        <% if rel.person == @person %>
+        <%= rel.relationship_type.name.titleize %>
+        <%= link_to rel.related_person.first_name, rel.related_person %>
+         <% else%>
+        <%= rel.relationship_type.name_of_backward_relationship.titleize %>
+        <%= link_to rel.person.first_name, rel.person %>
+
+      <%= link_to 'New Relationship',new_person_relationship
+      _path(@person) %>
+      <%= link_to 'Back', people_path %>
+
+      <% end %>
+    <% end %>
 
