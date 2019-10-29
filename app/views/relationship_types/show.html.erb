@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 
-      <h3>Backward name: <%= @relationship_type%></h3>
+      <h3>Backward name: <%= @relationship_type.backward_name%></h3>
+
+      <%= @relationship_type.name%>
+
+
       <%= link_to 'Back', relationship_types_path %>
 
