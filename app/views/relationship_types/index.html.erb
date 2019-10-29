@@ -16,7 +16,7 @@
   <tbody>
     <% @relationship_type.each do |relationship_type| %>
       <tr>
-        <td><%= relationship_type.name %></td>
+        <td><%= relationship_type.forward_name %></td>
         <td><%= relationship_type.read_attribute :backward_name %></td>
 
         <td><%= link_to 'Show', relationship_type %></td>

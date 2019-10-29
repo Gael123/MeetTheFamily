@@ -1,9 +1,9 @@
 class RelationshipTypesController < ApplicationController
   def index
-    @relationship_types = RelationshipType.all
+    @relationship_type = RelationshipType.all
     respond_to do |format|
       format.html
-      format.json { render json: @relationship_type }
+      format.json { render json: @relationship_types }
     end
   end
 
@@ -27,7 +27,29 @@ class RelationshipTypesController < ApplicationController
 
  def edit
   @relationship_type = RelationshipType.find(params[:id])
-
  end
+
+ def create
+  @relationship_type = RelationshipType.new(relationship_type_params)
+
+  respond_to do | format |
+    if @relationship_type.save
+      format.html { redirect_to @relationship_type, notice: 'relationship type created ' }
+      format.json { render json: @relationship_type, status: :created, location: @relationship_type }
+    else
+      format.html { render action: 'new' }
+      format.json { render json: @relationship_type.errors, status: :unprocessable_entity }
+    end
+   end
+ end
+
+private
+  def relationship_type_params
+    params.require(:relationship_type).permit(:name, :backward_name)
+  end
+
+
+
+
 
 end

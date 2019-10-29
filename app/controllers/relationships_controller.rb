@@ -1,5 +1,5 @@
 class RelationshipsController < ApplicationController
-  before_filter do
+  before_action do
     @person = Person.find(params[:person_id])
   end
 
@@ -22,6 +22,9 @@ class RelationshipsController < ApplicationController
 
   def new
     @relationship = @person.relationships.new
+    if params[:person_id].present?
+        @relationship.person_id = params[:person_id]
+      end
     respond_to do |format|
       format.html
       format.json { render json: @relationship }
@@ -41,4 +44,11 @@ class RelationshipsController < ApplicationController
       end
     end
   end
+  private
+  def relationships_params
+    params.require(:relationships).permit(:relationship_type_id, :person_id, :related_person_id)
+  end
+
+
+
 end

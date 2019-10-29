@@ -1,25 +1,15 @@
-<%= simple_form_for(@relationship_type) do |f| %>
-  <% if @relationship_type.errors.any? %>
-    <div class="errors-container">
 
-      <ul>
-        <% @person.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
 <div class="row justify-content-center">
   <div class="col-4">
 
     <%= simple_form_for [@relationship_type ] do |form| %>
-      <%= f.input :name, placeholder: "Name", label: false %>
-      <%= f.input :backward_name, placeholder: "Backward Name", label: false %>
+      <%= form.input :forward_name, placeholder: "Name", label: false %>
+      <%= form.input :backward_name, placeholder: "Backward Name", label: false %>
 
-
-      <%= f.submit "save", class: "btn-solid btn-block" %>
-
+      <%= form.submit "save", class: "btn-solid btn-block" %>
+      <% end %>
   </div>
 </div>
   <!-- [...] a
 
+_

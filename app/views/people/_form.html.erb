@@ -9,17 +9,18 @@
       </ul>
     </div>
 <% end %>
+<% end %>
 <div class="row justify-content-center">
   <div class="col-4">
 
     <%= simple_form_for [@person] do |form| %>
-      <%= f.input :first_name, placeholder: "First Name", label: false %>
-      <%= f.input :second_name, placeholder: "Second Name", label: false %>
-      <%= f.input :date_of_birth, placeholder: "Date of Birth", label: false %>
+      <%= form.input :first_name, placeholder: "First Name", label: false %>
+      <%= form.input :second_name, placeholder: "Second Name", label: false %>
+      <%= form.input :date_of_birth, placeholder: "Date of Birth", label: false %>
 
-      <%= f.submit "save", class: "btn-solid btn-block" %>
+      <%= form.submit "save", class: "btn-solid btn-block" %>
+      <% end %>
 
-    <% end %>
   </div>
 </div>
   <!-- [...] a

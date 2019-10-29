@@ -1,10 +1,14 @@
 class Person < ApplicationRecord
-  attr_accessible :first_name, :second_name
+  attr_accessor :first_name, :second_name, :date_of_birth
   validates :first_name, presence: true
   validates :second_name, presence: true
-  validates :date_of_birth, allow_nil: true, format: {
-    with: /\A\d{4}(-\d{1,2}(-\d{1,2})?)?\z/
-  }
+  validates_each :date_of_birth do |record, attr, value|
+  begin
+    Date.parse(value)
+  rescue
+    record.errors.add(attr, "Invalid date")
+  end
+end
   has_many :relationships, dependent: :destroy
   has_many :reverse_relationships, dependent: :destroy, class_name: 'Relationship', foreign_key: 'related_person_id'
 
