@@ -1,8 +1,8 @@
-require 'rubygems'
-require 'genealogy'
+
 class Person < ApplicationRecord
   attr_accessor :first_name, :second_name, :date_of_birth
   validates :first_name, presence: true
+  validates :sex, absence: true
   validates :second_name, presence: true
   validates_each :date_of_birth do |record, attr, value|
   begin

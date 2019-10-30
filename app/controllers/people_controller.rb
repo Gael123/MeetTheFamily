@@ -1,6 +1,10 @@
 class PeopleController < ApplicationController
   def index
-    @people = Person.all
+     @people = Person.all
+
+
+    # @people = People.arrange(:order => :created_at)
+
 
     respond_to do |format|
       format.html
@@ -31,7 +35,7 @@ class PeopleController < ApplicationController
   end
 
   def new
-    @person = Person.new
+    @person = Person.new(:mother_id => params[:mother_id])
 
     respond_to do |format|
       format.html

@@ -8,7 +8,7 @@ class RelationshipTypesController < ApplicationController
   end
 
  def show
-  @relationship_types = RelationshipType.find(params[:id])
+  @relationship_type = RelationshipType.find(params[:id])
 
   respond_to do | format|
     format.html

@@ -17,7 +17,7 @@
       <%= form.input :first_name, placeholder: "First Name", label: false %>
       <%= form.input :second_name, placeholder: "Second Name", label: false %>
       <%= form.input :date_of_birth, placeholder: "Date of Birth", label: false %>
-        <%= f.association :relationship,include_blank: :false %>
+
       <%= form.submit "save", class: "btn-solid btn-block" %>
       <%= link_to 'Back',people_path %>
 
