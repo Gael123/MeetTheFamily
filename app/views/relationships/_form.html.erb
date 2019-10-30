@@ -2,8 +2,8 @@
   <div class="col-4">
 
     <%= simple_form_for [@person, @relationship] do |form| %>
-      <%= form.input :relationship_type_id %>
-      <%= form.input :related_person_id %>
+      <%= form.input :relationship_type %>
+      <%= form.input :related_person %>
       <%= form.button :submit, class: 'btn btn-primary' %>
     <% end %>
   </div>

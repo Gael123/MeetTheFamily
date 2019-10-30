@@ -2,7 +2,7 @@
 
 
 
-<h1>Listing People</h1>
+<!-- <h1>Listing People</h1>
 
 <table>
   <thead>
@@ -11,13 +11,13 @@
       <th>Backward name</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+  </thead> -->
 
   <tbody>
-    <% @relationship_type.each do |relationship_type| %>
+    <% @relationship_types.each do |relationship_type| %>
       <tr>
         <td><%= relationship_type.forward_name %></td>
-        <td><%= relationship_type.read_attribute :backward_name %></td>
+        <td><%= relationship_type.backward_name %></td>
 
         <td><%= link_to 'Show', relationship_type %></td>
 

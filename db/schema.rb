@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_28_035233) do
+ActiveRecord::Schema.define(version: 2019_10_30_000953) do
 
   create_table "people", force: :cascade do |t|
     t.string "first_name"
     t.string "second_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "sex"
+    t.integer "father_id"
+    t.integer "mother_id"
   end
 
   create_table "relationship_types", force: :cascade do |t|

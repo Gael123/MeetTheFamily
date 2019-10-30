@@ -1,6 +1,6 @@
 class RelationshipTypesController < ApplicationController
   def index
-    @relationship_type = RelationshipType.all
+    @relationship_types = RelationshipType.all
     respond_to do |format|
       format.html
       format.json { render json: @relationship_types }
@@ -45,11 +45,8 @@ class RelationshipTypesController < ApplicationController
 
 private
   def relationship_type_params
-    params.require(:relationship_type).permit(:name, :backward_name)
+    params.require(:relationship_type).permit(:forward_name, :backward_name)
   end
-
-
-
 
 
 end

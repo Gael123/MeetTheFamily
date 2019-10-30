@@ -1,3 +1,5 @@
+require 'rubygems'
+require 'genealogy'
 class Person < ApplicationRecord
   attr_accessor :first_name, :second_name, :date_of_birth
   validates :first_name, presence: true
@@ -11,7 +13,7 @@ class Person < ApplicationRecord
 end
   has_many :relationships, dependent: :destroy
   has_many :reverse_relationships, dependent: :destroy, class_name: 'Relationship', foreign_key: 'related_person_id'
-
+  has_parents
   def all_relationships
     relationships | reverse_relationships
   end
