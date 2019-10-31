@@ -1,11 +1,7 @@
 class PeopleController < ApplicationController
   def index
-     @people = Person.all
-
-
+    @people = Person.all
     # @people = People.arrange(:order => :created_at)
-
-
     respond_to do |format|
       format.html
       format.json { render json: @people }
@@ -14,7 +10,6 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
-
     respond_to do |format|
       format.html
       format.json { render json: @people }
@@ -35,7 +30,7 @@ class PeopleController < ApplicationController
   end
 
   def new
-    @person = Person.new(:mother_id => params[:mother_id])
+    @person = Person.new(mother_id: params[:mother_id])
 
     respond_to do |format|
       format.html

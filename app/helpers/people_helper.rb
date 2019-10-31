@@ -1,17 +1,9 @@
 module PeopleHelper
-
-
-
-def children(parents)
-  parents.map do |parent, children|
+  def children(parents)
+    parents.map do |parent, children|
     render(children) + content_tag(:div, children(sub_children), :class => "nested_children")
-  end.join.html_safe
-end
-
-
-
-
-
+    end.join.html_safe
+endnd
   def to_node object
       if object.is_a?(self.ancestry_base_class)
         object
@@ -203,7 +195,7 @@ def check_ancestry_integrity! options = {}
       end
     end
 
-    ANCESTRY_UNCAST_TYPES = [:string, :uuid, :text].freeze
+    ANCESTRY_UNCAST_TYPES[:string, :uuid, :text].freeze
     if ActiveSupport::VERSION::STRING < "4.2"
       def primary_key_is_an_integer?
         if defined?(@primary_key_is_an_integer)

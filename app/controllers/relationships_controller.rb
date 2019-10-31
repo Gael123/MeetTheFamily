@@ -22,9 +22,7 @@ class RelationshipsController < ApplicationController
 
   def new
     @relationship = @person.relationships.new
-    if params[:person_id].present?
-        @relationship.person_id = params[:person_id]
-      end
+    params[:person_id].present? || @relationship.person_id = params[:person_id]
     respond_to do |format|
       format.html
       format.json { render json: @relationship }
@@ -33,7 +31,6 @@ class RelationshipsController < ApplicationController
 
   def create
     @relationship = @person.relationships.new(relationships_params)
-
     respond_to do |format|
       if @relationship.save
         format.html { redirect_to person_relationship_path(@person, @relationship), notice: 'Relationship was successfully created.' }
@@ -44,11 +41,10 @@ class RelationshipsController < ApplicationController
       end
     end
   end
+
   private
+
   def relationships_params
     params.require(:relationships).permit(:relationship_type.name, :person_id, :related_person_id)
   end
-
-
-
 end
