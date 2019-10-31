@@ -1,8 +1,5 @@
 <p id="notice"><%= notice %></p>
-
-
-      <%= @relationship_type %>
-      <%#= @relationship_type.forward_name %>
-
+      <%= @relationship_type.name %>
+      <%= @relationship_type.backward_name %>
       <%= link_to 'Back', relationship_types_path %>
 

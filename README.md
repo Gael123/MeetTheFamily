@@ -23,6 +23,40 @@ ruby version used 2.6
 * System dependencies.
 Used ancestry Gem to display parent /child
 
+Gemfile
+gem 'haml-rails'
+
+gem 'jquery-rails'
+gem "jquery-ui-rails"
+
+gem 'ancestry'
+
+routes
+# config/routes.rb
+resources :relationship_types
+resources :people do
+  collection do
+     relationship :sort
+  end
+end
+
+This page (sort_categories_path) will be used by the gem to update data after drag&drop.
+
+
+
+# app/models/people.rb
+
+class People < ActiveRecord::Base
+
+  has_ancestry
+
+  # it uses column ancestry_depth
+  # has_ancestry :cache_depth=>true
+
+end
+
+
+
 * Configuration
 
 * Database creation
