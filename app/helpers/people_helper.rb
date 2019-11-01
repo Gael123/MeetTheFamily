@@ -176,7 +176,7 @@ def check_ancestry_integrity! options = {}
     def rebuild_depth_cache!
       Ancestry::AncestryException.new("Cannot rebuild depth cache for model without depth caching.") unless respond_to? :depth_cache_column
 
-      ancestry_base_class.transaction do
+      selfancestry_base_class.transaction do
         unscoped_where do |scope|
           scope.find_each do |node|
             node.update_attribute depth_cache_column, node.depth
